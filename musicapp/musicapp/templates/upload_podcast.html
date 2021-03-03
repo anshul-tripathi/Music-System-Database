@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend class="border-bottom mb-4">New Podcast</legend>
+
+                <div class=form-group>
+                        {{ form.title.label(class="form-control-label") }}
+                        {% if form.title.errors %}
+                            {{  form.title(class="form-control form-control-lg is-valid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.title.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.title(class="form-control form-control-lg")}}
+                        {% endif %}
+                </div>
+
+                <div class=form-group>
+                        {{form.description.label(class="form-control-label") }}
+                        {% if form.description.errors %}
+                            {{  form.description(class="form-control form-control-lg is-valid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.description.errors %}
+                                    <span>{{ error}}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.description(class="form-control form-control-lg")}}
+                        {% endif %}
+                </div>
+
+                <div class=form-group>
+                    {{ form.name.label(class="form-control-label") }}
+                    {% if form.name.errors %}
+                        {{  form.name(class="form-control form-control-lg is-valid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.name(class="form-control form-control-lg")}}
+                    {% endif %}
+            </div>
+
+            <div class=form-group>
+                {{ form.category.label(class="form-control-label") }}
+                {% if form.category.errors %}
+                    {{  form.category(class="form-control form-control-lg is-valid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.category.errors %}
+                            <span>{{ error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.category(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+
+            <div class=form-group>
+                {{form.artist.label(class="form-control-label") }}
+                {% if form.artist.errors %}
+                    {{  form.artist(class="form-control form-control-lg is-valid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.artist.errors %}
+                            <span>{{ error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.artist(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+
+            <div class=form-group>
+                {{ form.podcast.label(class="form-control-label") }}
+                {{ form.podcast(class="form-control-file") }}
+                {% if form.podcast.errors %}
+                    {% for error in form.podcast.errors %}
+                        <span class="danger">{{ error }}</span></div></br>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            </fieldset>
+            <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

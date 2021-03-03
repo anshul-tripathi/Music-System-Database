@@ -1,0 +1,1 @@
+from musicapp import app
